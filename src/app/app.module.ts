@@ -13,22 +13,32 @@ import { MainPagesModule } from './components/main-pages/main-pages.module';
 import { AppComponent } from './components/app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
+import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
+import { PersonListComponent } from './components/reactive-form/people-group/person-list.component';
+import { PersonRowComponent } from './components/reactive-form/people-group/person-row.component';
+import { SummaryComponent } from './components/reactive-form/summary-group/summary.component';
+
 import { reducer } from './store';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MainPagesModule,
-    StoreModule.provideStore(reducer),
-    RouterStoreModule.connectRouter(),
-    StoreDevtoolsModule.instrumentOnlyWithExtension()
-  ],
-  declarations: [
-    AppComponent,
-    NavBarComponent
-  ],
-  bootstrap: [AppComponent],
-  providers: [LOG_LOGGER_PROVIDERS]
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        MainPagesModule,
+        StoreModule.provideStore(reducer),
+        RouterStoreModule.connectRouter(),
+        StoreDevtoolsModule.instrumentOnlyWithExtension()
+    ],
+    declarations: [
+        AppComponent,
+        NavBarComponent,
+        ReactiveFormComponent,
+        PersonListComponent,
+        PersonRowComponent,
+        SummaryComponent
+    ],
+    bootstrap: [AppComponent],
+    providers: [LOG_LOGGER_PROVIDERS]
 })
+
 export class AppModule { }
