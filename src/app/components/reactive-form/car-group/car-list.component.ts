@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+import { EditFormService } from '../../../services/edit-form.service';
 
 @Component({
     selector: 'car-list',
@@ -8,5 +10,7 @@ import { Component } from '@angular/core';
 
 export class CarListComponent
 {
+    @Input() cars: any[];
 
+    constructor(public editFormService: EditFormService) {}
 }

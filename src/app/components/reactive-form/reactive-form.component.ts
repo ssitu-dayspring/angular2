@@ -13,8 +13,15 @@ import * as fromRoot from '../../store';
 
 export class ReactiveFormComponent
 {
+    people$: Observable<any[]>;
+    cars$: Observable<any[]>;
+
+
     constructor(private fb: FormBuilder,
                 private store: Store<fromRoot.State>) {}
 
-    ngOnInit() {}
+    ngOnInit() {
+        this.people$ = this.store.select(fromRoot.getPeople);
+        this.cars$   = this.store.select(fromRoot.getCars);
+    }
 }

@@ -1,10 +1,10 @@
 <h1>Reactive Form</h1>
 
 <div>
-    <person-list></person-list>
+    <person-list [people]="people$ | async"></person-list>
     <hr>
 
-    <car-list></car-list>
+    <car-list [cars]="cars$ | async"></car-list>
     <hr>
 
     <summary></summary>

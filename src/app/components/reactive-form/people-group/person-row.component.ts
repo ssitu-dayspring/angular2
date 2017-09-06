@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { EditFormService } from '../../../services/edit-form.service';
 
@@ -10,13 +10,27 @@ import { EditFormService } from '../../../services/edit-form.service';
 
 export class PersonRowComponent
 {
+    @Input() person: any;
+
     constructor(public editFormService: EditFormService) {}
 
     getId() {
-        return 0;
+        return this.person.id;
     }
-    
+
+    getName() {
+        return this.person.name;
+    }
+
     setName(name: string) {
         this.editFormService.editPersonName(this.getId(), name);
+    }
+
+    getCompany() {
+        return this.person.company;
+    }
+
+    getPosition() {
+        return this.person.position;
     }
 }

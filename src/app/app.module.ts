@@ -9,7 +9,7 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { AppRoutingModule } from './app-routing.module';
 import { MainPagesModule } from './components/main-pages/main-pages.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './components/app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -23,10 +23,13 @@ import { SummaryComponent } from './components/reactive-form/summary-group/summa
 
 import { reducer } from './store';
 
+import { EditFormService } from './services/edit-form.service';
+
 @NgModule({
     imports: [
         BrowserModule,
         AppRoutingModule,
+        FormsModule,
         ReactiveFormsModule,
         StoreModule.provideStore(reducer),
         RouterStoreModule.connectRouter(),
@@ -43,7 +46,10 @@ import { reducer } from './store';
         SummaryComponent
     ],
     bootstrap: [AppComponent],
-    providers: [LOG_LOGGER_PROVIDERS]
+    providers: [
+        LOG_LOGGER_PROVIDERS,
+        EditFormService
+    ]
 })
 
 export class AppModule { }
