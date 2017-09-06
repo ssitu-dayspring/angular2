@@ -1,11 +1,22 @@
 <h1>Reactive Form</h1>
 
 <div>
-    <person-list [people]="people$ | async"></person-list>
-    <hr>
+    <form [formGroup]="reactiveForm" (ngSubmit)="submit()">
+        <person-list [people]="people$ | async"
+                     [reactiveForm]="reactiveForm"></person-list>
+        <hr>
 
-    <car-list [cars]="cars$ | async"></car-list>
-    <hr>
+        <car-list [cars]="cars$ | async"
+                  [reactiveForm]="reactiveForm"></car-list>
+        <hr>
 
-    <summary></summary>
+        <!--<summary></summary>-->
+
+        <div>
+            <div class="clearfix">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-default">Cancel</button>
+            </div>
+        </div>
+    </form>
 </div>

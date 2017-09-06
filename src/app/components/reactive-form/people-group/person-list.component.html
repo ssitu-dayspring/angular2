@@ -1,10 +1,25 @@
-<div class="mb-10">
+<div class="mb-10" [formGroup]="reactiveForm">
     <h1>People</h1>
 
-    <div class="form-group">
-        <person-row *ngFor="let person of people"
-                    [person]="person">
-        </person-row>
+    <div class="form-group" formGroupName="fgPeople">
+        <!--<person-row *ngFor="let person of people"-->
+                    <!--[person]="person">-->
+        <!--</person-row>-->
+
+        <div class="form-group">
+            <div class="person-row">
+                <label>Name</label>
+                <input type="text" formControlName="fcName">
+
+                <label>Company</label>
+                <input type="text" formControlName="fcCompany">
+
+                <label>Position</label>
+                <input type="text" formControlName="fcPosition">
+
+                <span class="glyphicon glyphicon-minus-sign"></span>
+            </div>
+        </div>
     </div>
 
     <button type="button" class="btn btn-primary">
