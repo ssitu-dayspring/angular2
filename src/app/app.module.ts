@@ -27,7 +27,6 @@ import { reducer } from './store';
     imports: [
         BrowserModule,
         AppRoutingModule,
-        MainPagesModule,
         ReactiveFormsModule,
         StoreModule.provideStore(reducer),
         RouterStoreModule.connectRouter(),
