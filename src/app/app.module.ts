@@ -9,6 +9,7 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { AppRoutingModule } from './app-routing.module';
 import { MainPagesModule } from './components/main-pages/main-pages.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './components/app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -16,6 +17,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
 import { PersonListComponent } from './components/reactive-form/people-group/person-list.component';
 import { PersonRowComponent } from './components/reactive-form/people-group/person-row.component';
+import { CarListComponent } from './components/reactive-form/car-group/car-list.component';
+import { CarRowComponent } from './components/reactive-form/car-group/car-row.component';
 import { SummaryComponent } from './components/reactive-form/summary-group/summary.component';
 
 import { reducer } from './store';
@@ -25,6 +28,7 @@ import { reducer } from './store';
         BrowserModule,
         AppRoutingModule,
         MainPagesModule,
+        ReactiveFormsModule,
         StoreModule.provideStore(reducer),
         RouterStoreModule.connectRouter(),
         StoreDevtoolsModule.instrumentOnlyWithExtension()
@@ -35,6 +39,8 @@ import { reducer } from './store';
         ReactiveFormComponent,
         PersonListComponent,
         PersonRowComponent,
+        CarListComponent,
+        CarRowComponent,
         SummaryComponent
     ],
     bootstrap: [AppComponent],

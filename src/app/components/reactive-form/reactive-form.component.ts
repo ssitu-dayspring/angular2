@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
     selector: 'reactive-form',
@@ -8,5 +9,10 @@ import { Component } from '@angular/core';
 
 export class ReactiveFormComponent
 {
+    constructor(private fb: FormBuilder) {}
 
+
+    ngOnInit() {
+
+    }
 }
