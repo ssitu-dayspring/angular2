@@ -1,20 +1,24 @@
 <div class="person-row" [formGroup]="formGroup">
-    <div [ngClass]="{'has-error': hasError('name')}">
-        <label>Name</label>
-        <input type="text" formControlName="name">
+    <form-row [label]="'Name'"
+              [formGroup]="formGroup"
+              [ctrlName]="'name'"
+              [errList]="errList">
+        <input class="form-control form-row" type="text" formControlName="name">
+    </form-row>
 
-        <div *ngIf="hasError('name', 'required')"
-             class=""
-             role="alert">
-            Position is required.
-        </div>
-    </div>
-    
-    <label>Company</label>
-    <input type="text" formControlName="company">
+    <form-row [label]="'Company'"
+              [formGroup]="formGroup"
+              [ctrlName]="'company'"
+              [errList]="errList">
+        <input class="form-control form-row" type="text" formControlName="company">
+    </form-row>
 
-    <label>Position</label>
-    <input type="text" formControlName="position">
+    <form-row [label]="'Position'"
+              [formGroup]="formGroup"
+              [ctrlName]="'position'"
+              [errList]="errList">
+        <input class="form-control form-row" type="text" formControlName="position">
+    </form-row>
 
     <span class="glyphicon glyphicon-minus-sign" (click)="delete()"></span>
 </div>

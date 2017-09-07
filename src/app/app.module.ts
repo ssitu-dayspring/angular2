@@ -20,6 +20,7 @@ import { PersonRowComponent } from './components/reactive-form/people-group/pers
 import { CarListComponent } from './components/reactive-form/car-group/car-list.component';
 import { CarRowComponent } from './components/reactive-form/car-group/car-row.component';
 import { SummaryComponent } from './components/reactive-form/summary-group/summary.component';
+import { FormRowComponent } from './components/shared/form-row.component';
 
 import { reducer } from './store';
 
@@ -43,7 +44,8 @@ import { EditFormService } from './services/edit-form.service';
         PersonRowComponent,
         CarListComponent,
         CarRowComponent,
-        SummaryComponent
+        SummaryComponent,
+        FormRowComponent
     ],
     bootstrap: [AppComponent],
     providers: [

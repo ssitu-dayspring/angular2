@@ -15,27 +15,16 @@ export class PersonRowComponent
     @Input('person') formGroup: FormGroup;
     @Output() onDelete: EventEmitter<number> = new EventEmitter();
 
+    errList: any = [
+        { type: 'required',  msg: 'Name is required' },
+        { type: 'maxlength', msg: 'Exceeded maximum of 255 characters' }
+    ];
+
     constructor(public editFormService: EditFormService) {}
 
     ngOnChanges() {
         if (!this.formGroup) {
             return;
-        }
-    }
-
-    private hasError(name: string, error: string = undefined): boolean {
-        if (!this.formGroup) return false;
-        let tree = name.split('.');
-        let o: any = this.formGroup;
-
-        tree.forEach(key => {
-            o = o.get(key);
-        });
-
-        if (error) {
-            return o.hasError(error) && !o.pristine;
-        } else {
-            return o.errors && !o.pristine;
         }
     }
 
