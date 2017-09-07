@@ -14,12 +14,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './components/app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
-import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
-import { PersonListComponent } from './components/reactive-form/people-group/person-list.component';
-import { PersonRowComponent } from './components/reactive-form/people-group/person-row.component';
-import { CarListComponent } from './components/reactive-form/car-group/car-list.component';
-import { CarRowComponent } from './components/reactive-form/car-group/car-row.component';
-import { SummaryComponent } from './components/reactive-form/summary-group/summary.component';
+import { StudentFormComponent } from './components/student-form/student-form.component';
+import { HighSchoolStudentListComponent } from './components/student-form/high-school/high-school-student-list.component';
+import { HighSchoolStudentRowComponent } from './components/student-form/high-school/high-school-student-row.component';
+import { CollegeStudentListComponent } from './components/student-form/college/college-student-list.component';
+import { CollegeStudentRowComponent } from './components/student-form/college/college-student-row.component';
+import { SummaryComponent } from './components/student-form/summary-group/summary.component';
 import { FormRowComponent } from './components/shared/form-row.component';
 
 import { reducer } from './store';
@@ -39,11 +39,11 @@ import { EditFormService } from './services/edit-form.service';
     declarations: [
         AppComponent,
         NavBarComponent,
-        ReactiveFormComponent,
-        PersonListComponent,
-        PersonRowComponent,
-        CarListComponent,
-        CarRowComponent,
+        StudentFormComponent,
+        HighSchoolStudentListComponent,
+        HighSchoolStudentRowComponent,
+        CollegeStudentListComponent,
+        CollegeStudentRowComponent,
         SummaryComponent,
         FormRowComponent
     ],

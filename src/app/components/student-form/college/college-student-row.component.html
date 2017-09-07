@@ -1,0 +1,19 @@
+<div class="car-row" [formGroup]="formGroup">
+    <label>Name</label>
+    <input type="text" formControlName="name">
+
+    <label>College</label>
+    <input type="text" formControlName="college">
+
+    <label>Year</label>
+    <select formControlName="year">
+        <option [value]="year" *ngFor="let year of ['1st', '2nd', '3rd', '4th', '5th', '6+']">
+            {{ year }}
+        </option>
+    </select>
+
+    <label>Major</label>
+    <input type="text" formControlName="major">
+
+    <span class="glyphicon glyphicon-minus-sign" (click)="remove()"></span>
+</div>

@@ -1,0 +1,39 @@
+<div class="person-row" [formGroup]="formGroup">
+    <form-row [label]="'Name'"
+              [formGroup]="formGroup"
+              [ctrlName]="'name'"
+              [errList]="errList">
+        <input class="form-control form-row" type="text" formControlName="name">
+    </form-row>
+
+    <form-row [label]="'School'"
+              [formGroup]="formGroup"
+              [ctrlName]="'school'"
+              [errList]="errList">
+        <input class="form-control form-row" type="text" formControlName="school">
+    </form-row>
+
+    <form-row [label]="'Grade'"
+              [formGroup]="formGroup"
+              [ctrlName]="'grade'"
+              [errList]="errList">
+        <select class="form-control form-row" formControlName="grade">
+            <option value>-- Grade --</option>
+            <option value="9">Freshman</option>
+            <option value="10">Sophomore</option>
+            <option value="11">Junior</option>
+            <option value="12">Senior</option>
+        </select>
+    </form-row>
+
+    <form-row [label]="'# AP Classes'"
+              [formGroup]="formGroup"
+              [ctrlName]="'numAPClasses'"
+              [errList]="errList">
+        <select class="form-control form-row" formControlName="numAPClasses">
+            <option *ngFor="let c of [0,1,2,3,4,5,6,7]" [selected]="c == '0'">{{ c }}</option>
+        </select>
+    </form-row>
+
+    <span class="glyphicon glyphicon-minus-sign" (click)="remove()"></span>
+</div>

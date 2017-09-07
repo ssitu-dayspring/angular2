@@ -1,0 +1,15 @@
+<div class="mb-10" [formGroup]="formGroup">
+    <h1>High School Students</h1>
+
+    <div class="form-group" formArrayName="students">
+        <high-school-student-row *ngFor="let student of getForm('students').controls; let i=index"
+                                 [idx]="i"
+                                 [student]="student"
+                                 (onRemove)="remove($event)"></high-school-student-row>
+    </div>
+
+    <button type="button" class="btn btn-primary"
+            (click)="add()">
+        Add <span class="glyphicon glyphicon-plus"></span>
+    </button>
+</div>
