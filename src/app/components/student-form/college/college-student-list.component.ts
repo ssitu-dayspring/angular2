@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
 import { EditFormService } from '../../../services/edit-form.service';
-    import { AbstractFormArrayManager } from '../abstract-form-array-manager';
+import { AbstractBaseListComponent } from '../abstract-base-list.component';
 
 @Component({
     selector: 'college-student-list',
@@ -10,7 +10,7 @@ import { EditFormService } from '../../../services/edit-form.service';
     styles: [require('./college-student-list.component.scss')]
 })
 
-export class CollegeStudentListComponent extends AbstractFormArrayManager
+export class CollegeStudentListComponent extends AbstractBaseListComponent
 {
     constructor(public fb: FormBuilder) {
         super();

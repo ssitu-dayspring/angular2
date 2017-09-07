@@ -1,19 +1,35 @@
 <div class="car-row" [formGroup]="formGroup">
-    <label>Name</label>
-    <input type="text" formControlName="name">
+    <form-row [formGroup]="formGroup"
+              [ctrlName]="'name'"
+              [validations]="validations.name">
+        <label class="form-label">Name</label>
+        <input class="form-control form-widget" type="text" formControlName="name">
+    </form-row>
 
-    <label>College</label>
-    <input type="text" formControlName="college">
+    <form-row [formGroup]="formGroup"
+              [ctrlName]="'college'"
+              [validations]="validations.college">
+        <label class="form-label">College</label>
+        <input class="form-control form-widget" type="text" formControlName="college">
+    </form-row>
 
-    <label>Year</label>
-    <select formControlName="year">
-        <option [value]="year" *ngFor="let year of ['1st', '2nd', '3rd', '4th', '5th', '6+']">
-            {{ year }}
-        </option>
-    </select>
+    <form-row [formGroup]="formGroup"
+              [ctrlName]="'year'"
+              [validations]="validations.year">
+        <label class="form-label">Year</label>
+        <select class="form-control form-widget" formControlName="year">
+            <option [value]="year" *ngFor="let year of ['1st', '2nd', '3rd', '4th', '5th', '6+']">
+                {{ year }}
+            </option>
+        </select>
+    </form-row>
 
-    <label>Major</label>
-    <input type="text" formControlName="major">
+    <form-row [formGroup]="formGroup"
+              [ctrlName]="'major'"
+              [validations]="validations.major">
+        <label class="form-label">Major</label>
+        <input class="form-control form-widget" type="text" formControlName="major">
+    </form-row>
 
     <span class="glyphicon glyphicon-minus-sign" (click)="remove()"></span>
 </div>

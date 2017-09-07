@@ -1,5 +1,6 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { AbstractBaseRowComponent } from '../abstract-base-row.component';
 
 @Component({
     selector: 'college-student-row',
@@ -7,20 +8,25 @@ import { FormGroup } from '@angular/forms';
     styles: [require('./college-student-row.component.scss')]
 })
 
-export class CollegeStudentRowComponent
+export class CollegeStudentRowComponent extends AbstractBaseRowComponent
 {
-    @Input() idx: number;
     @Input('student') formGroup: FormGroup;
-    @Output() onRemove: EventEmitter<number> = new EventEmitter();
 
-    errList: any = [
-        { type: 'required',  msg: 'Name is required' },
-        { type: 'maxlength', msg: 'Exceeded maximum of 255 characters' }
-    ];
-
-    constructor() {}
-
-    remove() {
-        this.onRemove.emit(this.idx);
-    }
+    validations: any = {
+        name: [
+            { type: 'required',  msg: 'Name is required' },
+            { type: 'maxlength', msg: 'Exceeded maximum of 255 characters' }
+        ],
+        college: [
+            { type: 'required',  msg: 'School is required' },
+            { type: 'maxlength', msg: 'Exceeded maximum of 255 characters' }
+        ],
+        year: [
+            { type: 'required',  msg: 'Year is required' }
+        ],
+        major: [
+            { type: 'required',  msg: 'Major is required' },
+            { type: 'maxlength', msg: 'Exceeded maximum of 255 characters' }
+        ]
+    };
 }
