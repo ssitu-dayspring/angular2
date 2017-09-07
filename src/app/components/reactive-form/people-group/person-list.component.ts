@@ -42,4 +42,8 @@ export class PersonListComponent
 
         this.peopleForm.push(form);
     }
+
+    delete(idx: number) {
+        this.peopleForm.removeAt(idx);
+    }
 }

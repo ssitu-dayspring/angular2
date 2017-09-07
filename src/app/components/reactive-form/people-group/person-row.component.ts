@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, AbstractControl, Validators } from '@angular/forms';
 
 import { EditFormService } from '../../../services/edit-form.service';
@@ -11,7 +11,9 @@ import { EditFormService } from '../../../services/edit-form.service';
 
 export class PersonRowComponent
 {
+    @Input() idx: number;
     @Input('person') formGroup: FormGroup;
+    @Output() onDelete: EventEmitter<number> = new EventEmitter();
 
     constructor(public editFormService: EditFormService) {}
 
@@ -37,4 +39,7 @@ export class PersonRowComponent
         }
     }
 
+    delete() {
+        this.onDelete.emit(this.idx);
+    }
 }
