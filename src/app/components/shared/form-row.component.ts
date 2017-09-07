@@ -5,13 +5,13 @@ import { FormGroup } from '@angular/forms';
     selector: 'form-row',
     template: `
         <div class="form-group" [ngClass]="{'has-error': hasError(ctrlName)}">
-            <label>{{ label }}</label>
-            <ng-content select=".form-row"></ng-content>
+            <ng-content class="" select=".form-label"></ng-content>
+            <ng-content select=".form-widget"></ng-content>
 
-            <div *ngFor="let err of errList">
-                <label *ngIf="hasError(ctrlName, err.type)"
+            <div *ngFor="let validation of validations">
+                <label *ngIf="hasError(ctrlName, validation.type)"
                      class="error"
-                     role="alert">{{ err.msg }}</label>
+                     role="alert">{{ validation.msg }}</label>
             </div>
         </div>
     `
@@ -20,9 +20,8 @@ import { FormGroup } from '@angular/forms';
 export class FormRowComponent
 {
     @Input() formGroup: FormGroup;
-    @Input() label: string;
     @Input() ctrlName: string;
-    @Input() errList: string;
+    @Input() validations: string;
 
     private hasError(name: string, error: string = undefined): boolean {
         if (!this.formGroup) return false;

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormBuilder, FormArray, FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 
-import { AbstractFormArrayManager } from '../abstract-form-array-manager';
+import { AbstractBaseListComponent } from '../abstract-base-list.component';
 
 @Component({
     selector: 'high-school-student-list',
@@ -9,7 +9,7 @@ import { AbstractFormArrayManager } from '../abstract-form-array-manager';
     styles: [require('./high-school-student-list.component.scss')]
 })
 
-export class HighSchoolStudentListComponent extends AbstractFormArrayManager
+export class HighSchoolStudentListComponent extends AbstractBaseListComponent
 {
     @Input() formGroup: FormGroup;
 

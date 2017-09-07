@@ -1,7 +1,7 @@
 import { Input } from '@angular/core';
 import { FormGroup, FormArray } from '@angular/forms';
 
-export abstract class AbstractFormArrayManager
+export abstract class AbstractBaseListComponent
 {
     @Input() formGroup: FormGroup;
 
