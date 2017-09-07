@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { FormGroup, AbstractControl, Validators } from '@angular/forms';
 
 import { EditFormService } from '../../../services/edit-form.service';
 
@@ -10,27 +11,30 @@ import { EditFormService } from '../../../services/edit-form.service';
 
 export class PersonRowComponent
 {
-    @Input() person: any;
+    @Input('person') formGroup: FormGroup;
 
     constructor(public editFormService: EditFormService) {}
 
-    getId() {
-        return this.person.id;
+    ngOnChanges() {
+        if (!this.formGroup) {
+            return;
+        }
     }
 
-    getName() {
-        return this.person.name;
+    private hasError(name: string, error: string = undefined): boolean {
+        if (!this.formGroup) return false;
+        let tree = name.split('.');
+        let o: any = this.formGroup;
+
+        tree.forEach(key => {
+            o = o.get(key);
+        });
+
+        if (error) {
+            return o.hasError(error) && !o.pristine;
+        } else {
+            return o.errors && !o.pristine;
+        }
     }
 
-    setName(name: string) {
-        this.editFormService.editPersonName(this.getId(), name);
-    }
-
-    getCompany() {
-        return this.person.company;
-    }
-
-    getPosition() {
-        return this.person.position;
-    }
 }

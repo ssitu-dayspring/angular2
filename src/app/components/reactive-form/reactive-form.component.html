@@ -1,13 +1,13 @@
 <h1>Reactive Form</h1>
 
 <div>
-    <form [formGroup]="reactiveForm" (ngSubmit)="submit()">
+    <form [formGroup]="form" (ngSubmit)="submit()">
         <person-list [people]="people$ | async"
-                     [reactiveForm]="reactiveForm"></person-list>
+                     [formGroup]="form.controls.peopleGroup"></person-list>
         <hr>
 
-        <car-list [cars]="cars$ | async"
-                  [reactiveForm]="reactiveForm"></car-list>
+        <!--<car-list [cars]="cars$ | async"-->
+                  <!--[formGroup]="formGroup.controls.cars"></car-list>-->
         <hr>
 
         <!--<summary></summary>-->

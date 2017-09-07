@@ -1,10 +1,10 @@
-<div class="mb-10">
+<div class="mb-10" [formGroup]="formCars">
     <h1>Cars</h1>
 
-    <div class="form-group" [formGroup]="reactiveForm">
+    <div class="form-group">
         <!--<car-row></car-row>-->
 
-        <div class="car-row" formGroupName="fgCars">
+        <div class="car-row">
             <label>Make</label>
             <input type="text" formControlName="fcMake">
 

@@ -1,16 +1,21 @@
-<div class="person-row">
-    <label>Name</label>
-    <input type="text"
-           [ngModel]="getName()"
-           (change)="setName($event.target.value)">
+<div class="person-row" [formGroup]="formGroup">
+    <div [ngClass]="{'has-error': hasError('name')}">
+        <label>Name</label>
+        <input type="text" formControlName="name">
+
+        <div *ngIf="hasError('name', 'required')"
+             class=""
+             role="alert">
+            Position is required.
+        </div>
+    </div>
+
 
     <label>Company</label>
-    <input type="text"
-           [ngModel]="getCompany()">
+    <input type="text" formControlName="company">
 
     <label>Position</label>
-    <input type="text"
-           [ngModel]="getPosition()">
+    <input type="text" formControlName="position">
 
     <span class="glyphicon glyphicon-minus-sign"></span>
 </div>

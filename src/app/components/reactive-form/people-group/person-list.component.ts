@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormArray, FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 
 import { EditFormService } from '../../../services/edit-form.service';
 
@@ -12,15 +12,34 @@ import { EditFormService } from '../../../services/edit-form.service';
 export class PersonListComponent
 {
     @Input() people: any[];
-    @Input() reactiveForm: FormGroup;
+    @Input() formGroup: FormGroup;
 
-    constructor(public editFormService: EditFormService) {}
+    constructor(public editFormService: EditFormService,
+                public fb: FormBuilder) {}
 
-    ngOnInit() {
-        this.reactiveForm.addControl('fgPeople', new FormGroup({
-            fcName:     new FormControl('Jerry Seinfeld', <any>Validators.required),
-            fcCompany:  new FormControl('Yahoo', <any>Validators.required),
-            fcPosition: new FormControl('Project Manager', <any>Validators.required)
-        }))
+    get peopleForm() {
+        return <FormArray> this.formGroup.controls['people'];
+    }
+
+    add() {
+        let form = this.fb.group({
+            name: '',
+            company: '',
+            position: ''
+        });
+
+        const nameCtrl: AbstractControl = form.get('name');
+        nameCtrl.setValidators([Validators.required, Validators.maxLength(255)]);
+        nameCtrl.updateValueAndValidity();
+
+        const companyCtrl: AbstractControl = form.get('company');
+        companyCtrl.setValidators([Validators.required, Validators.maxLength(255)]);
+        companyCtrl.updateValueAndValidity();
+
+        const positionCtrl: AbstractControl = form.get('position');
+        positionCtrl.setValidators([Validators.required, Validators.maxLength(255)]);
+        positionCtrl.updateValueAndValidity();
+
+        this.peopleForm.push(form);
     }
 }

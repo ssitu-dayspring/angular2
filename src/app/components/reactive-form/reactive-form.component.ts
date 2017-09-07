@@ -18,7 +18,7 @@ export class ReactiveFormComponent
     people$: Observable<any[]>;
     cars$: Observable<any[]>;
 
-    reactiveForm: FormGroup;
+    form: FormGroup;
     //fgPeople: FormGroup;
 
     constructor(private fb: FormBuilder,
@@ -28,10 +28,20 @@ export class ReactiveFormComponent
         this.people$ = this.store.select(fromRoot.getPeople);
         this.cars$   = this.store.select(fromRoot.getCars);
 
-        this.reactiveForm = this.fb.group({});
+        this.form = this.fb.group({
+            //people: this.fb.group({
+            //    name: '',
+            //    company: '',
+            //    position: ''
+            //})
+            peopleGroup: this.fb.group({
+                people: this.fb.array([])
+            }),
+            //cars:   this.fb.array([])
+        });
     }
 
     submit() {
-        console.log('submitted', this.reactiveForm);
+        console.log('submitted', this.form);
     }
 }
