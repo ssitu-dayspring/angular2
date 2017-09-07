@@ -1,35 +1,43 @@
-<div class="car-row" [formGroup]="formGroup">
-    <form-row [formGroup]="formGroup"
-              [ctrlName]="'name'"
-              [validations]="validations.name">
-        <label class="form-label">Name</label>
-        <input class="form-control form-widget" type="text" formControlName="name">
-    </form-row>
+<form-row (onRemove)="remove()">
+    <div class="form-row-body" [formGroup]="formGroup">
+        <div class="row">
+            <form-field class="col-sm-5 col-xs-12"
+                        [formGroup]="formGroup"
+                        [ctrlName]="'name'"
+                        [validations]="validations.name">
+                <label class="form-label">Name</label>
+                <input class="form-control form-widget" type="text" formControlName="name">
+            </form-field>
 
-    <form-row [formGroup]="formGroup"
-              [ctrlName]="'college'"
-              [validations]="validations.college">
-        <label class="form-label">College</label>
-        <input class="form-control form-widget" type="text" formControlName="college">
-    </form-row>
+            <form-field class="col-sm-7 col-xs-12"
+                        [formGroup]="formGroup"
+                        [ctrlName]="'college'"
+                        [validations]="validations.college">
+                <label class="form-label">College</label>
+                <input class="form-control form-widget" type="text" formControlName="college">
+            </form-field>
+        </div>
 
-    <form-row [formGroup]="formGroup"
-              [ctrlName]="'year'"
-              [validations]="validations.year">
-        <label class="form-label">Year</label>
-        <select class="form-control form-widget" formControlName="year">
-            <option [value]="year" *ngFor="let year of ['1st', '2nd', '3rd', '4th', '5th', '6+']">
-                {{ year }}
-            </option>
-        </select>
-    </form-row>
+        <div class="row">
+            <form-field class="col-sm-4 col-xs-12"
+                        [formGroup]="formGroup"
+                        [ctrlName]="'year'"
+                        [validations]="validations.year">
+                <label class="form-label">Year</label>
+                <select class="form-control form-widget" formControlName="year">
+                    <option [value]="year" *ngFor="let year of ['1st', '2nd', '3rd', '4th', '5th', '6+']">
+                        {{ year }}
+                    </option>
+                </select>
+            </form-field>
 
-    <form-row [formGroup]="formGroup"
-              [ctrlName]="'major'"
-              [validations]="validations.major">
-        <label class="form-label">Major</label>
-        <input class="form-control form-widget" type="text" formControlName="major">
-    </form-row>
-
-    <span class="glyphicon glyphicon-minus-sign" (click)="remove()"></span>
-</div>
+            <form-field class="col-sm-6 col-xs-12"
+                        [formGroup]="formGroup"
+                        [ctrlName]="'major'"
+                        [validations]="validations.major">
+                <label class="form-label">Major</label>
+                <input class="form-control form-widget" type="text" formControlName="major">
+            </form-field>
+        </div>
+    </div>
+</form-row>

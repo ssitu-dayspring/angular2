@@ -1,0 +1,16 @@
+.form-row {
+    padding: 15px 15px 15px 35px;
+    margin-bottom: 10px;
+    background: #eeeeee;
+    display: flex;
+    border-radius: 3px;
+
+    & > div {
+        flex: 1;
+        margin-right: 10px;
+    }
+}
+
+span.glyphicon.glyphicon-minus-sign {
+    cursor: pointer;
+}

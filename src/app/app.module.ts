@@ -20,7 +20,9 @@ import { HighSchoolStudentRowComponent } from './components/student-form/high-sc
 import { CollegeStudentListComponent } from './components/student-form/college/college-student-list.component';
 import { CollegeStudentRowComponent } from './components/student-form/college/college-student-row.component';
 import { SummaryComponent } from './components/student-form/summary-group/summary.component';
-import { FormRowComponent } from './components/shared/form-row.component';
+import { BaseFormListComponent } from './components/shared/base-form-list.component';
+import { BaseFormRowComponent } from './components/shared/base-form-row.component';
+import { FormFieldComponent } from './components/shared/form-field.component';
 
 import { reducer } from './store';
 
@@ -45,7 +47,9 @@ import { EditFormService } from './services/edit-form.service';
         CollegeStudentListComponent,
         CollegeStudentRowComponent,
         SummaryComponent,
-        FormRowComponent
+        BaseFormListComponent,
+        BaseFormRowComponent,
+        FormFieldComponent
     ],
     bootstrap: [AppComponent],
     providers: [

@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
-    selector: 'form-row',
+    selector: 'form-field',
     template: `
         <div class="form-group" [ngClass]="{'has-error': hasError(ctrlName)}">
             <ng-content class="" select=".form-label"></ng-content>
@@ -17,7 +17,7 @@ import { FormGroup } from '@angular/forms';
     `
 })
 
-export class FormRowComponent
+export class FormFieldComponent
 {
     @Input() formGroup: FormGroup;
     @Input() ctrlName: string;

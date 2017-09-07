@@ -8,7 +8,7 @@ import * as fromRoot from '../../store';
 @Component({
     selector: 'student-form',
     template: require('./student-form.component.html'),
-    //styles: [require('./student-form.component.scss')]
+    styles: [require('./student-form.component.scss')]
 })
 
 export class StudentFormComponent

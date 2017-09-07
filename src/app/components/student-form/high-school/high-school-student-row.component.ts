@@ -4,7 +4,7 @@ import { FormGroup, AbstractControl, Validators } from '@angular/forms';
 @Component({
     selector: 'high-school-student-row',
     template: require('./high-school-student-row.component.html'),
-    styles: [require('./high-school-student-row.component.scss')]
+    //styles: [require('./high-school-student-row.component.scss')]
 })
 
 export class HighSchoolStudentRowComponent
