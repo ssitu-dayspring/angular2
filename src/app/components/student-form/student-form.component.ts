@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
@@ -51,10 +51,7 @@ export class StudentFormComponent
         let collegeStudents: CollegeStudent[] = formValues.college.students;
         let isFormValid = this.form.valid;
 
-        //Object.keys((<FormGroup>this.form.get('highSchool')).controls).forEach(field => {
-        //    const control = this.form.get(field);
-        //    control.markAsDirty({onlySelf: true});
-        //});
+        this.validateAllFields(this.form);
 
         if (isFormValid) {
             this.store.dispatch(new students.SaveAction({
@@ -64,5 +61,17 @@ export class StudentFormComponent
         } else {
             console.log('Errors');
         }
+    }
+
+    private validateAllFields(formGroup: (FormGroup | FormArray)) {
+        Object.keys(formGroup.controls).forEach((field) => {
+            let control: AbstractControl = formGroup.get(field);
+
+            if (control instanceof FormControl) {
+                control.markAsDirty({onlySelf: true});
+            } else if (control instanceof FormGroup || control instanceof FormArray) {
+                this.validateAllFields(<FormGroup> control);
+            }
+        });
     }
 }
