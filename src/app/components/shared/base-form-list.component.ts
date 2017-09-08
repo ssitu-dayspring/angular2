@@ -9,7 +9,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
             <div class="form-list-container">
                 <ng-content selector=".form-list"></ng-content>
 
-                <button type="button" class="btn btn-primary" (click)="add()">
+                <button type="button" class="btn btn-primary btn-add" (click)="add()">
                     <span class="glyphicon glyphicon-plus"></span> Add
                 </button>
             </div>

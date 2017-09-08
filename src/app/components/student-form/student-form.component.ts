@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
@@ -9,9 +9,7 @@ import * as fromRoot from '../../store';
 import * as students from '../../store/student-form/student-form.actions';
 
 import { StudentFormDataService } from '../../services/student-form-data';
-import { Students } from '../../models/student';
-import {HighSchoolStudent} from "../../models/student";
-import {CollegeStudent} from "../../models/student";
+import { Students, HighSchoolStudent, CollegeStudent } from '../../models/student';
 
 @Component({
     selector: 'student-form',
@@ -41,9 +39,12 @@ export class StudentFormComponent
         this.students$ = this.studentFormData.getStudents();
     }
 
-    submit() {
-        console.log('Submit', this.form);
+    isSubmittable(): boolean {
+        return (<FormArray> this.form.get('highSchool').get('students')).length > 0 ||
+            (<FormArray> this.form.get('college').get('students')).length > 0;
+    }
 
+    submit() {
         let formValues = this.form.value;
 
         let highSchoolStudents: HighSchoolStudent[] = formValues.highSchool.students;
@@ -55,11 +56,13 @@ export class StudentFormComponent
         //    control.markAsDirty({onlySelf: true});
         //});
 
-        console.log(isFormValid, highSchoolStudents, collegeStudents);
-
-        this.store.dispatch(new students.SaveAction({
-            highSchool: highSchoolStudents,
-            college: collegeStudents
-        }));
+        if (isFormValid) {
+            this.store.dispatch(new students.SaveAction({
+                highSchool: highSchoolStudents,
+                college: collegeStudents
+            }));
+        } else {
+            console.log('Errors');
+        }
     }
 }

@@ -10,6 +10,6 @@
                               [students]="(students$ | async)?.college"></college-student-list>
         <hr>
 
-        <summary></summary>
+        <summary [isSubmittable]="isSubmittable()"></summary>
     </form>
 </div>

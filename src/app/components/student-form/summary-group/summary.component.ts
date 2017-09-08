@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
     selector: 'summary',
@@ -8,5 +9,7 @@ import { Component } from '@angular/core';
 
 export class SummaryComponent
 {
+    @Input() isSubmittable: boolean;
 
+    submit() {}
 }

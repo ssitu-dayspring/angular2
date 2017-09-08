@@ -1,6 +1,12 @@
 <div class="summary">
     <div class="clearfix">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary"
+                [disabled]="!isSubmittable"
+                (click)="submit()">Submit</button>
         <button type="button" class="btn btn-default">Cancel</button>
     </div>
+
+    <label *ngIf="!isSubmittable" class="error">
+        At least 1 student required.
+    </label>
 </div>
