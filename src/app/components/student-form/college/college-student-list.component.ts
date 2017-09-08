@@ -4,6 +4,8 @@ import { FormBuilder, AbstractControl, Validators } from '@angular/forms';
 import { EditFormService } from '../../../services/edit-form.service';
 import { AbstractBaseListComponent } from '../abstract-base-list.component';
 
+import { Student, CollegeStudent } from '../../../models/student';
+
 @Component({
     selector: 'college-student-list',
     template: require('./college-student-list.component.html'),
@@ -16,22 +18,28 @@ export class CollegeStudentListComponent extends AbstractBaseListComponent
         super();
     }
 
-    add(): void {
+    ngOnChanges() {
+        if (this.students && this.getForm('students').length == 0) {
+            this.load();
+        }
+    }
+
+    add(student: Student = null): void {
         let form = this.fb.group({
-            name: '',
-            college: '',
-            major: '',
-            year: '',
-            tuition: ''
+            name:    student ? (<CollegeStudent> student).name : '',
+            school:  student ? (<CollegeStudent> student).school : '',
+            major:   student ? (<CollegeStudent> student).major : '',
+            year:    student ? (<CollegeStudent> student).year : '',
+            tuition: student ? (<CollegeStudent> student).tuition : ''
         });
 
         const nameCtrl: AbstractControl = form.get('name');
         nameCtrl.setValidators([Validators.required, Validators.maxLength(255)]);
         nameCtrl.updateValueAndValidity();
 
-        const collegeCtrl: AbstractControl = form.get('college');
-        collegeCtrl.setValidators([Validators.required, Validators.maxLength(255)]);
-        collegeCtrl.updateValueAndValidity();
+        const schoolCtrl: AbstractControl = form.get('school');
+        schoolCtrl.setValidators([Validators.required, Validators.maxLength(255)]);
+        schoolCtrl.updateValueAndValidity();
 
         const majorCtrl: AbstractControl = form.get('major');
         majorCtrl.setValidators([Validators.required]);

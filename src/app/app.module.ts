@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { LOG_LOGGER_PROVIDERS } from 'angular2-logger/core';
 import { Store, StoreModule } from '@ngrx/store';
@@ -25,16 +26,20 @@ import { BaseFormRowComponent } from './components/shared/base-form-row.componen
 import { FormFieldComponent } from './components/shared/form-field.component';
 
 import { reducer } from './store';
+import { StudentFormEffects } from './store/student-form/student-form.effects';
 
 import { EditFormService } from './services/edit-form.service';
+import { StudentFormDataService } from './services/student-form-data';
 
 @NgModule({
     imports: [
+        HttpModule,
         BrowserModule,
         AppRoutingModule,
         FormsModule,
         ReactiveFormsModule,
         StoreModule.provideStore(reducer),
+        EffectsModule.run(StudentFormEffects),
         RouterStoreModule.connectRouter(),
         StoreDevtoolsModule.instrumentOnlyWithExtension()
     ],
@@ -54,7 +59,8 @@ import { EditFormService } from './services/edit-form.service';
     bootstrap: [AppComponent],
     providers: [
         LOG_LOGGER_PROVIDERS,
-        EditFormService
+        EditFormService,
+        StudentFormDataService
     ]
 })
 

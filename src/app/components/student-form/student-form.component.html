@@ -2,10 +2,12 @@
 
 <div>
     <form [formGroup]="form" (ngSubmit)="submit()">
-        <high-school-student-list [formGroup]="form.controls.highSchool"></high-school-student-list>
+        <high-school-student-list [formGroup]="form.controls.highSchool"
+                                  [students]="(students$ | async)?.highSchool"></high-school-student-list>
         <hr>
 
-        <college-student-list [formGroup]="form.controls.college"></college-student-list>
+        <college-student-list [formGroup]="form.controls.college"
+                              [students]="(students$ | async)?.college"></college-student-list>
         <hr>
 
         <summary></summary>

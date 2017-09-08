@@ -1,0 +1,32 @@
+{
+    "highSchool": [
+        {
+            "name": "Maggie Simpson",
+            "school": "Lowell High School",
+            "grade": "9",
+            "numAPClasses": 3
+        },
+        {
+            "name": "Bart Simpson",
+            "school": "Lincoln High School",
+            "grade": "10",
+            "numAPClasses": 0
+        }
+    ],
+    "college": [
+        {
+            "name": "Homer Simpson",
+            "school": "University of California, Berkeley",
+            "year": "6+",
+            "major": "Material Science",
+            "tuition": 29425
+        },
+        {
+            "name": "Marge Simpson",
+            "school": "Standford University",
+            "year": "3rd",
+            "major": "Journalism",
+            "tuition": 37500
+        }
+    ]
+}

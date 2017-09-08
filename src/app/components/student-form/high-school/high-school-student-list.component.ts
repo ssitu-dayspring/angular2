@@ -3,6 +3,8 @@ import { FormBuilder, FormArray, FormGroup, FormControl, Validators, AbstractCon
 
 import { AbstractBaseListComponent } from '../abstract-base-list.component';
 
+import { Student, HighSchoolStudent } from '../../../models/student';
+
 @Component({
     selector: 'high-school-student-list',
     template: require('./high-school-student-list.component.html'),
@@ -11,18 +13,22 @@ import { AbstractBaseListComponent } from '../abstract-base-list.component';
 
 export class HighSchoolStudentListComponent extends AbstractBaseListComponent
 {
-    @Input() formGroup: FormGroup;
-
     constructor(public fb: FormBuilder) {
         super();
     }
 
-    add(): void {
+    ngOnChanges() {
+        if (this.students && this.getForm('students').length == 0) {
+            this.load();
+        }
+    }
+
+    add(student: Student = null): void {
         let form = this.fb.group({
-            name: '',
-            school: '',
-            grade: '',
-            numAPClasses: ''
+            name:         student ? (<HighSchoolStudent> student).name : '',
+            school:       student ? (<HighSchoolStudent> student).school : '',
+            grade:        student ? (<HighSchoolStudent> student).grade : '',
+            numAPClasses: student ? (<HighSchoolStudent> student).numAPClasses : ''
         });
 
         const nameCtrl: AbstractControl = form.get('name');

@@ -11,10 +11,10 @@
 
             <form-field class="col-sm-7 col-xs-12"
                         [formGroup]="formGroup"
-                        [ctrlName]="'college'"
-                        [validations]="validations.college">
+                        [ctrlName]="'school'"
+                        [validations]="validations.school">
                 <label class="form-label">College</label>
-                <input class="form-control form-widget" type="text" formControlName="college">
+                <input class="form-control form-widget" type="text" formControlName="school">
             </form-field>
         </div>
 
@@ -44,7 +44,10 @@
                         [ctrlName]="'tuition'"
                         [validations]="validations.tuition">
                 <label class="form-label">Tuition</label>
-                <input class="form-control form-widget" type="text" formControlName="tuition">
+                <div class="form-widget input-group">
+                    <div class="input-group-addon">$</div>
+                    <input class="form-control" type="text" formControlName="tuition">
+                </div>
             </form-field>
         </div>
     </div>
