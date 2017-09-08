@@ -27,6 +27,9 @@ export class CollegeStudentRowComponent extends AbstractBaseRowComponent
         major: [
             { type: 'required',  msg: 'Major is required' },
             { type: 'maxlength', msg: 'Exceeded maximum of 255 characters' }
+        ],
+        tuition: [
+            { type: 'required',  msg: 'Tuiotion is required' }
         ]
     };
 }

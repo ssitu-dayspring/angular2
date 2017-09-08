@@ -19,7 +19,15 @@
         </div>
 
         <div class="row">
-            <form-field class="col-sm-4 col-xs-12"
+            <form-field class="col-sm-6 col-xs-12"
+                        [formGroup]="formGroup"
+                        [ctrlName]="'major'"
+                        [validations]="validations.major">
+                <label class="form-label">Major</label>
+                <input class="form-control form-widget" type="text" formControlName="major">
+            </form-field>
+
+            <form-field class="col-sm-2 col-xs-12"
                         [formGroup]="formGroup"
                         [ctrlName]="'year'"
                         [validations]="validations.year">
@@ -31,12 +39,12 @@
                 </select>
             </form-field>
 
-            <form-field class="col-sm-6 col-xs-12"
+            <form-field class="col-sm-4 col-xs-12"
                         [formGroup]="formGroup"
-                        [ctrlName]="'major'"
-                        [validations]="validations.major">
-                <label class="form-label">Major</label>
-                <input class="form-control form-widget" type="text" formControlName="major">
+                        [ctrlName]="'tuition'"
+                        [validations]="validations.tuition">
+                <label class="form-label">Tuition</label>
+                <input class="form-control form-widget" type="text" formControlName="tuition">
             </form-field>
         </div>
     </div>
