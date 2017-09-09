@@ -6,6 +6,8 @@ import { AbstractBaseListComponent } from '../abstract-base-list.component';
 
 import { Student, CollegeStudent } from '../../../models/student';
 
+import { isaCurrency, isaNumber } from '../../../form-validators';
+
 @Component({
     selector: 'college-student-list',
     template: require('./college-student-list.component.html'),
@@ -50,7 +52,7 @@ export class CollegeStudentListComponent extends AbstractBaseListComponent
         yearCtrl.updateValueAndValidity();
 
         const tuitionCtrl: AbstractControl = form.get('tuition');
-        tuitionCtrl.setValidators([Validators.required]);
+        tuitionCtrl.setValidators([Validators.required, isaCurrency]);
         tuitionCtrl.updateValueAndValidity();
 
         this.getForm('students').push(form);

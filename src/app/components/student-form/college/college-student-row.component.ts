@@ -29,7 +29,8 @@ export class CollegeStudentRowComponent extends AbstractBaseRowComponent
             { type: 'maxlength', msg: 'Exceeded maximum of 255 characters' }
         ],
         tuition: [
-            { type: 'required',  msg: 'Tuiotion is required' }
+            { type: 'required',    msg: 'Tuition is required' },
+            { type: 'isaCurrency', msg: 'Please enter amount with no commas, letters, or symbols. Use positive amounts with 8 digits or less.' }
         ]
     };
 }

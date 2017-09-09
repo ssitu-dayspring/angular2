@@ -63,6 +63,12 @@ export class StudentFormComponent
         }
     }
 
+    /**
+     * @param formGroup
+     *
+     * Marking forms as dirty will trigger validations in the child components
+     *
+     */
     private validateAllFields(formGroup: (FormGroup | FormArray)) {
         Object.keys(formGroup.controls).forEach((field) => {
             let control: AbstractControl = formGroup.get(field);
