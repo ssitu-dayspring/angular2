@@ -1,13 +1,15 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, AbstractControl, Validators } from '@angular/forms';
 
+import { AbstractBaseRowComponent } from '../abstract-base-row.component';
+
 @Component({
     selector: 'high-school-student-row',
     template: require('./high-school-student-row.component.html'),
     //styles: [require('./high-school-student-row.component.scss')]
 })
 
-export class HighSchoolStudentRowComponent
+export class HighSchoolStudentRowComponent extends AbstractBaseRowComponent
 {
     @Input() idx: number;
     @Input('student') formGroup: FormGroup;
@@ -29,10 +31,4 @@ export class HighSchoolStudentRowComponent
             { type: 'required',  msg: '# AP Classes is required' }
         ]
     };
-
-    constructor() {}
-
-    remove() {
-        this.onRemove.emit(this.idx);
-    }
 }

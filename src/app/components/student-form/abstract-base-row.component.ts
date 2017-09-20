@@ -4,6 +4,7 @@ export abstract class AbstractBaseRowComponent
 {
     @Input() idx: number;
     @Output() onRemove: EventEmitter<number> = new EventEmitter();
+    @Output() onChangeStudentType: EventEmitter<boolean> = new EventEmitter();
 
     errList: any = [
         { type: 'required',  msg: 'Name is required' },
@@ -12,5 +13,9 @@ export abstract class AbstractBaseRowComponent
 
     remove() {
         this.onRemove.emit(this.idx);
+    }
+
+    changeStudentType(isCollegeStudent: boolean) {
+        this.onChangeStudentType.emit(isCollegeStudent);
     }
 }

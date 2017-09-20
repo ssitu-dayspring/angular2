@@ -6,6 +6,7 @@
                 *ngFor="let student of getForm('students').controls; let i=index"
                 [idx]="i"
                 [student]="student"
-                (onRemove)="remove($event)"></college-student-row>
+                (onRemove)="remove($event)"
+                (onChangeStudentType)="changeStudentType($event)"></college-student-row>
     </div>
 </form-list>

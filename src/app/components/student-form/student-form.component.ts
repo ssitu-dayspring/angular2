@@ -63,6 +63,12 @@ export class StudentFormComponent
         }
     }
 
+    changeStudentType(isCollegeStudent: boolean) {
+        console.log(isCollegeStudent);
+
+        console.log((<FormArray> this.form.get('highSchool').get('students')).at(0));
+    }
+
     /**
      * @param formGroup
      *
