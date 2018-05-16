@@ -30,6 +30,7 @@ import { StudentFormEffects } from './store/student-form/student-form.effects';
 
 import { EditFormService } from './services/edit-form.service';
 import { StudentFormDataService } from './services/student-form-data';
+import { StudentsFormModule } from './components/student-form-2018/students-form.module';
 
 @NgModule({
     imports: [
@@ -41,7 +42,8 @@ import { StudentFormDataService } from './services/student-form-data';
         StoreModule.provideStore(reducer),
         EffectsModule.run(StudentFormEffects),
         RouterStoreModule.connectRouter(),
-        StoreDevtoolsModule.instrumentOnlyWithExtension()
+        StoreDevtoolsModule.instrumentOnlyWithExtension(),
+        StudentsFormModule
     ],
     declarations: [
         AppComponent,
@@ -52,7 +54,6 @@ import { StudentFormDataService } from './services/student-form-data';
         CollegeStudentListComponent,
         CollegeStudentRowComponent,
         SummaryComponent,
-        BaseFormListComponent,
         BaseFormRowComponent,
         FormFieldComponent
     ],

@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-    selector: 'form-row',
+    selector: 'form-row-old',
     template: `
         <div class="form-row">
             <div>
